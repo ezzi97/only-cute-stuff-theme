@@ -115,6 +115,15 @@ img.motion-reduce {
 input[type='search'] {
   border-radius: 999px !important;
 }
+/* Dawn draws the field border + focus state via .field and .field::after — round
+   them to the pill shape so focusing the input doesn't show a square box. */
+.field,
+.field::after,
+.field::before,
+.newsletter-form__field-wrapper,
+.select::after {
+  border-radius: 999px !important;
+}
 .price {
   color: var(--k-pink-deep);
   font-weight: 700;
