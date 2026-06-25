@@ -1,29 +1,14 @@
 {
   "sections": {
-    "header": {
-      "type": "header",
-      "settings": {
-        "shop_name": "Only Cute Stuff",
-        "main_menu_handle": "main-menu",
-        "color_primary": "#FFC0CB",
-        "color_secondary": "#ADD8E6",
-        "font_main": "sans-serif"
-      }
-    },
     "main": {
-      "type": "main-content"
-    },
-    "footer": {
-      "type": "footer",
+      "type": "main-page",
       "settings": {
-        "shop_name": "Only Cute Stuff",
-        "color_secondary": "#ADD8E6"
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     }
   },
   "order": [
-    "header",
-    "main",
-    "footer"
+    "main"
   ]
 }
