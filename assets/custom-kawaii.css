@@ -97,6 +97,11 @@ body {
   transform: translateY(-5px);
   box-shadow: var(--kawaii-shadow);
 }
+/* Breathing room around the card title + price */
+.card__information,
+.card-information {
+  padding: 1rem 1.25rem 1.25rem !important;
+}
 
 /* Rounded media + inputs for the soft look */
 .cute-hero__img,
