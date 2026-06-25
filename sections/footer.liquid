@@ -1,0 +1,31 @@
+<footer class="site-footer" style="--secondary-color: {{ settings.color_secondary }};">
+  <div class="footer-container">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ settings.shop_name }}. All rights reserved.</p>
+    <p><a href="{{ routes.pages_url }}policy">Privacy Policy</a></p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Site footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "shop_name",
+      "label": "Shop name",
+      "default": "Only Cute Stuff"
+    },
+    {
+      "type": "color",
+      "id": "color_secondary",
+      "label": "Secondary color",
+      "default": "#ADD8E6"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Site footer"
+    }
+  ]
+}
+{% endschema %}

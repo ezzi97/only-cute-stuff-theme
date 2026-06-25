@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary color",
+        "default": "#FFC0CB"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary color",
+        "default": "#ADD8E6"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_main",
+        "label": "Main font",
+        "default": "Arial"
+      },
+      {
+        "type": "text",
+        "id": "shop_name",
+        "label": "Shop name",
+        "default": "Only Cute Stuff"
+      }
+    ]
+  }
+]

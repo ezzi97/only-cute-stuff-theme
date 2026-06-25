@@ -1,0 +1,32 @@
+{
+  "general": {
+    "app_title": "Only Cute Stuff",
+    "shop_name": "Only Cute Stuff"
+  },
+  "labels": {
+    "text": "Text",
+    "text_style": "Text style",
+    "alignment": "Alignment",
+    "gallery": "Gallery",
+    "image": "Image",
+    "video": "Video",
+    "alt_text": "Alternative text",
+    "featured_collection": "Collection to display",
+    "products_to_show": "Number of products to show",
+    "show_price": "Show price",
+    "hero_title": "Hero Title",
+    "hero_subtitle": "Hero Subtitle",
+    "hero_button_link": "Hero Button Link",
+    "hero_button_text": "Hero Button Text",
+    "main_menu_handle": "Main menu handle",
+    "color_primary": "Primary Color",
+    "color_secondary": "Secondary Color",
+    "font_main": "Main Font"
+  },
+  "options": {
+    "text_style": {
+      "title": "Title style",
+      "normal": "Normal style"
+    }
+  }
+}

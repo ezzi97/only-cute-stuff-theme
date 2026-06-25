@@ -1,0 +1,61 @@
+<header class="site-header" style="--primary-color: {{ settings.color_primary }}; --secondary-color: {{ settings.color_secondary }}; --main-font: {{ settings.font_main }};">
+  <div class="header-container">
+    <div class="site-title">
+      <a href="{{ routes.root_url }}">
+        <h1 data-shop-name="{{ settings.shop_name }}">{{ settings.shop_name }}</h1>
+      </a>
+    </div>
+    {% comment %} Navigation will go here {% endcomment %}
+    <nav class="site-nav">
+      <ul>
+        {% for link in linklists[settings.main_menu_handle].links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Site header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "shop_name",
+      "label": "Shop name",
+      "default": "Only Cute Stuff"
+    },
+    {
+      "type": "text",
+      "id": "main_menu_handle",
+      "label": "Main menu handle",
+      "info": "Enter the handle of the menu to display in the header.",
+      "default": "main-menu"
+    },
+    {
+      "type": "color",
+      "id": "color_primary",
+      "label": "Primary color",
+      "default": "#FFC0CB"
+    },
+    {
+      "type": "color",
+      "id": "color_secondary",
+      "label": "Secondary color",
+      "default": "#ADD8E6"
+    },
+    {
+      "type": "font_picker",
+      "id": "font_main",
+      "label": "Main font",
+      "default": "Arial"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Site header"
+    }
+  ]
+}
+{% endschema %}
