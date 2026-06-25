@@ -24,7 +24,8 @@
       },
       "block_order": [
         "announcement-bar-1"
-      ]
+      ],
+      "settings": {}
     },
     "header": {
       "type": "header",
