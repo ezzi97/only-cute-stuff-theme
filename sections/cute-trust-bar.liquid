@@ -1,0 +1,35 @@
+<div class="cute-trust">
+  <div class="page-width cute-trust__row">
+    {%- for block in section.blocks -%}
+      <span class="cute-trust__item" {{ block.shopify_attributes }}>
+        <span class="cute-trust__icon">{{ block.settings.icon }}</span>
+        <span class="cute-trust__label">{{ block.settings.text }}</span>
+      </span>
+    {%- endfor -%}
+  </div>
+</div>
+<style>
+  .cute-trust { background: linear-gradient(90deg, #f3e9ff 0%, #ffe9f3 50%, #e9f1ff 100%); }
+  .cute-trust__row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; padding: 1rem 0; }
+  .cute-trust__item { display: inline-flex; align-items: center; gap: 0.55rem; font-weight: 600; color: var(--k-ink); flex: 1 1 200px; justify-content: center; }
+  .cute-trust__icon { font-size: 1.1rem; }
+</style>
+{% schema %}
+{
+  "name": "Cute trust bar",
+  "settings": [],
+  "blocks": [
+    { "type": "item", "name": "Item", "settings": [
+      { "type": "text", "id": "icon", "label": "Icon (emoji)", "default": "🚚" },
+      { "type": "text", "id": "text", "label": "Text", "default": "Free shipping $50+" }
+    ]}
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "Cute trust bar", "blocks": [
+    { "type": "item", "settings": { "icon": "🚚", "text": "Free shipping $50+" } },
+    { "type": "item", "settings": { "icon": "↩️", "text": "30-day returns" } },
+    { "type": "item", "settings": { "icon": "🛡️", "text": "Secure checkout" } },
+    { "type": "item", "settings": { "icon": "✨", "text": "Earn cute points" } }
+  ]}]
+}
+{% endschema %}

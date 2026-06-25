@@ -1,8 +1,9 @@
 /* ============================================================
-   Only Cute Stuff — kawaii design layer
-   Rich pastel styling: gradients, pill buttons, soft shadows,
-   hover-lift cards, decorative glyphs. Self-contained (no assets).
+   Only Cute Stuff — kawaii design layer (reference-matched)
+   Serif display headings, pastel gradients, pill badges,
+   image-overlay collection cards, trust bar, dark plum footer.
    ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Nunito:wght@400;500;600;700&display=swap');
 
 :root {
   --k-blush: #ffd6e8;
@@ -10,163 +11,112 @@
   --k-lilac: #e7d6ff;
   --k-mint: #d6f5e3;
   --k-pink: #ff7fb0;
-  --k-pink-deep: #ff5fa0;
-  --k-ink: #4a3f47;
+  --k-pink-deep: #e8589a;
+  --k-ink: #4a2c39;
+  --k-plum: #3a2230;
   --kawaii-radius: 26px;
-  --kawaii-shadow: 0 10px 30px rgba(255, 127, 176, 0.22);
+  --kawaii-shadow: 0 12px 34px rgba(255, 127, 176, 0.22);
   --kawaii-shadow-sm: 0 6px 16px rgba(255, 127, 176, 0.16);
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
 }
 
-/* Soft gradient page backdrop */
 body {
   background: linear-gradient(180deg, var(--k-cream) 0%, #fff 40%, var(--k-cream) 100%);
+  font-family: 'Nunito', sans-serif;
 }
 
-/* ---- Buttons: pill-shaped, gradient, lift on hover ---- */
+/* ---- Serif display for headings + logo ---- */
+h1, h2, h3, h4,
+.h0, .h1, .h2, .h3,
+.header__heading, .header__heading-link,
+.cute-hero__heading, .cute-section-title,
+.cute-collections__name, .cute-empty__title {
+  font-family: var(--font-serif) !important;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.header__heading-link { font-size: 1.6rem; }
+
+/* ---- Pill badge above section headings ---- */
+.cute-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.8rem;
+  letter-spacing: 0.02em; color: var(--k-pink-deep);
+  background: #fff; border-radius: 999px; padding: 0.45rem 1rem;
+  box-shadow: var(--kawaii-shadow-sm); margin-bottom: 1rem;
+}
+.cute-section-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;
+}
+.cute-section-head .cute-section-title { font-size: clamp(2rem, 5vw, 3.4rem); margin: 0; text-align: left; }
+.cute-viewall {
+  font-weight: 700; color: var(--k-ink); text-decoration: none;
+  white-space: nowrap; display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.cute-viewall:hover { color: var(--k-pink-deep); }
+
+/* ---- Buttons: pill, gradient, lift ---- */
 .button,
 .shopify-payment-button__button--unbranded,
 .cute-hero__cta {
   border-radius: 999px !important;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  padding-inline: 2rem;
+  font-family: 'Nunito', sans-serif; font-weight: 700;
+  letter-spacing: 0.02em; padding-inline: 2rem;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .button:not(.button--secondary),
-.cute-hero__cta:not(.button--secondary) {
+.cute-hero__cta--primary {
   background: linear-gradient(135deg, var(--k-pink) 0%, var(--k-pink-deep) 100%) !important;
-  box-shadow: var(--kawaii-shadow-sm);
-  color: #fff !important;
+  box-shadow: var(--kawaii-shadow-sm); color: #fff !important;
 }
-.button:hover,
-.cute-hero__cta:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--kawaii-shadow);
-}
-.button--secondary {
-  border-radius: 999px !important;
-}
-/* Dawn draws the button border via ::after — match the pill radius so we don't
-   get a rectangular box around the rounded button. */
-.button::after,
-.cute-hero__cta::after {
-  border-radius: 999px !important;
-}
-.button--secondary::after {
-  box-shadow: 0 0 0 2px var(--k-pink) inset !important;
-}
-
-/* "Add to cart" is a secondary button in Dawn when dynamic checkout (PayPal) is
-   shown — make it a solid filled pink button so it reads as the primary action. */
+.button:hover, .cute-hero__cta:hover { transform: translateY(-2px); box-shadow: var(--kawaii-shadow); }
+.button::after, .cute-hero__cta::after { border-radius: 999px !important; }
+.button--secondary { border-radius: 999px !important; }
+.button--secondary::after { box-shadow: 0 0 0 2px var(--k-pink) inset !important; }
 .product-form__submit {
   background: linear-gradient(135deg, var(--k-pink) 0%, var(--k-pink-deep) 100%) !important;
+  color: #fff !important; box-shadow: var(--kawaii-shadow-sm) !important;
+}
+.product-form__submit::after { display: none !important; }
+
+/* ---- Cards: rounded, hover lift, clip image ---- */
+.card, .card-wrapper, .product-card-wrapper, .collection-card, .cute-card {
+  border-radius: var(--kawaii-radius) !important;
+}
+.card__inner, .card .card__media, .card__media .media, .card__inner .card__content {
+  border-radius: var(--kawaii-radius) !important;
+}
+.card__inner, .card__media { overflow: hidden; }
+.card, .cute-card { box-shadow: var(--kawaii-shadow-sm); transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.card-wrapper:hover .card, .cute-card:hover { transform: translateY(-5px); box-shadow: var(--kawaii-shadow); }
+.card__information, .card-information { padding: 1rem 1.25rem 1.25rem !important; }
+
+.cute-hero__img, .cute-collections__img, img.motion-reduce { border-radius: var(--kawaii-radius); }
+.price { color: var(--k-pink-deep); font-weight: 700; }
+.kawaii-glyph { display: inline-block; margin: 0 0.4rem; color: var(--k-pink); }
+
+/* ---- Announcement bar: bold pink ---- */
+.announcement-bar {
+  background: linear-gradient(90deg, var(--k-pink) 0%, var(--k-pink-deep) 100%) !important;
   color: #fff !important;
-  box-shadow: var(--kawaii-shadow-sm) !important;
 }
-.product-form__submit::after {
-  display: none !important;
-}
+.announcement-bar__message, .announcement-bar a { color: #fff !important; }
 
-/* ---- Cards: rounded, soft border, hover lift ---- */
-.card,
-.card-wrapper,
-.product-card-wrapper,
-.collection-card,
-.cute-card {
-  border-radius: var(--kawaii-radius) !important;
+/* ---- Dark plum footer ---- */
+.footer { background-color: var(--k-plum) !important; }
+.footer .footer__content-top,
+.footer .footer__content-bottom { border: 0 !important; }
+.footer,
+.footer .footer-block__heading,
+.footer .footer-block__details-content a,
+.footer .list-menu__item,
+.footer .footer__content-bottom-wrapper,
+.footer .copyright__content,
+.footer .footer-block__details-content,
+.footer .policies a {
+  color: #f5e6ee !important;
 }
-/* Round every card layer to the SAME radius and clip the inner wrapper, so the
-   card background/shadow can't peek out behind the rounded image at the corners. */
-.card__inner,
-.card .card__media,
-.card__media .media,
-.card__inner .card__content {
-  border-radius: var(--kawaii-radius) !important;
-}
-.card__inner,
-.card__media {
-  overflow: hidden;
-}
-.card,
-.cute-card {
-  box-shadow: var(--kawaii-shadow-sm);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-.card-wrapper:hover .card,
-.cute-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--kawaii-shadow);
-}
-/* Breathing room around the card title + price */
-.card__information,
-.card-information {
-  padding: 1rem 1.25rem 1.25rem !important;
-}
-
-/* Rounded media + inputs for the soft look */
-.cute-hero__img,
-.cute-collections__img,
-img.motion-reduce {
-  border-radius: var(--kawaii-radius);
-}
-.field__input,
-.select__select,
-.text-area,
-input[type='search'] {
-  border-radius: 999px !important;
-}
-/* Dawn draws the field border + focus state via .field and .field::after — round
-   them to the pill shape so focusing the input doesn't show a square box. */
-.field,
-.field::after,
-.field::before,
-.newsletter-form__field-wrapper,
-.select::after {
-  border-radius: 999px !important;
-}
-/* Search bar (header drawer, predictive search, and /search page) */
-.search__input,
-.search__input.field__input,
-.search .field,
-.search .field::after,
-.search-modal__form .field,
-.search-modal__form .field::after,
-predictive-search .field,
-predictive-search .field::after {
-  border-radius: 999px !important;
-}
-.price {
-  color: var(--k-pink-deep);
-  font-weight: 700;
-}
-
-/* ---- Decorative glyph helper ---- */
-.kawaii-glyph {
-  display: inline-block;
-  margin: 0 0.4rem;
-  color: var(--k-pink);
-}
-
-/* ---- Section titles: big, centered, with sparkle ---- */
-.cute-section-title {
-  text-align: center;
-  font-weight: 700;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  margin-bottom: 0.5rem;
-}
-.cute-section-title .kawaii-glyph {
-  font-size: 0.7em;
-  vertical-align: middle;
-  animation: kawaii-bob 3s ease-in-out infinite;
-}
-@keyframes kawaii-bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-/* Give Dawn's featured-collection heading the cute treatment */
-.featured-collection .title-wrapper h2,
-.collection .title-wrapper h2 {
-  text-align: center;
-  font-weight: 700;
-}
+.footer .footer-block__heading { font-family: var(--font-serif) !important; }
+.footer a:hover { color: var(--k-pink) !important; }
+.footer .field__input { color: var(--k-ink) !important; background: #fff !important; }

@@ -1,27 +1,36 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "cute_hero": {
       "type": "cute-hero",
       "settings": {
-        "heading": "Only the cutest things, ever",
-        "subheading": "Hand-picked plushies & accessories, wrapped with love.",
+        "badge": "New Spring Drop",
+        "heading": "Only the",
+        "heading_accent": "cutest",
+        "heading_post": "things, ever.",
+        "subheading": "Hand-picked plushies, accessories, and little daily delights — packed with love and a free sticker in every box.",
         "button1_label": "Shop the drop",
         "button1_link": "shopify://collections/all",
         "button2_label": "Lookbook",
-        "button2_link": "",
+        "button2_link": "shopify://collections/all",
         "rating": "4.9",
-        "review_count": "12,400+ reviews",
+        "review_count": "12,400+ happy bestie reviews",
+        "badge1": "Free gift",
+        "badge1_sub": "over $50",
+        "badge2": "Loved by",
+        "badge2_sub": "12k besties",
         "color_scheme": "scheme-1"
       }
+    },
+    "trust_bar": {
+      "type": "cute-trust-bar",
+      "blocks": {
+        "i1": { "type": "item", "settings": { "icon": "🚚", "text": "Free shipping $50+" } },
+        "i2": { "type": "item", "settings": { "icon": "↩️", "text": "30-day returns" } },
+        "i3": { "type": "item", "settings": { "icon": "🛡️", "text": "Secure checkout" } },
+        "i4": { "type": "item", "settings": { "icon": "✨", "text": "Earn cute points" } }
+      },
+      "block_order": ["i1", "i2", "i3", "i4"],
+      "settings": {}
     },
     "cute_collections": {
       "type": "cute-collection-cards",
@@ -32,7 +41,9 @@
       },
       "block_order": ["b1", "b2", "b3"],
       "settings": {
-        "heading": "Shop by cuteness",
+        "badge": "Collections",
+        "heading": "Pick your flavor of cute",
+        "view_all_link": "shopify://collections",
         "color_scheme": "scheme-1"
       }
     },
@@ -74,5 +85,5 @@
       }
     }
   },
-  "order": ["cute_hero", "cute_collections", "trending", "testimonials"]
+  "order": ["cute_hero", "trust_bar", "cute_collections", "trending", "testimonials"]
 }
