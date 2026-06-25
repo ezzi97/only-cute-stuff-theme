@@ -1,0 +1,48 @@
+<div class="color-{{ section.settings.color_scheme | default: 'scheme-3' }} gradient">
+  <div class="page-width cute-reviews">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="cute-section-title"><span class="kawaii-glyph">✦</span>{{ section.settings.heading }}<span class="kawaii-glyph">✦</span></h2>
+    {%- endif -%}
+    <div class="cute-reviews__grid">
+      {%- for block in section.blocks -%}
+        <div class="cute-card cute-reviews__card" {{ block.shopify_attributes }}>
+          <div class="cute-reviews__stars">{% for i in (1..block.settings.rating) %}★{% endfor %}</div>
+          <p class="cute-reviews__quote">{{ block.settings.quote }}</p>
+          <p class="cute-reviews__author">
+            {{ block.settings.author }}
+            {%- if block.settings.verified -%}<span class="kawaii-glyph">♡ verified</span>{%- endif -%}
+          </p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+<style>
+  .cute-reviews { padding: 4rem 0; }
+  .cute-reviews__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .cute-reviews__card { padding: 1.75rem; background: #fff; }
+  .cute-reviews__stars { color: #ff7fb0; font-size: 1.1rem; }
+  .cute-reviews__quote { margin: 0.75rem 0; font-style: italic; }
+  .cute-reviews__author { font-weight: 600; }
+</style>
+{% schema %}
+{
+  "name": "Cute testimonials",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Loved by besties" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-3" }
+  ],
+  "blocks": [
+    { "type": "testimonial", "name": "Testimonial", "settings": [
+      { "type": "textarea", "id": "quote", "label": "Quote", "default": "Cutest plushie I've ever owned!" },
+      { "type": "text", "id": "author", "label": "Author", "default": "Mochi" },
+      { "type": "range", "id": "rating", "label": "Stars", "min": 1, "max": 5, "step": 1, "default": 5 },
+      { "type": "checkbox", "id": "verified", "label": "Verified buyer", "default": true }
+    ]}
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "Cute testimonials", "blocks": [
+    { "type": "testimonial" }, { "type": "testimonial" }, { "type": "testimonial" }
+  ]}]
+}
+{% endschema %}

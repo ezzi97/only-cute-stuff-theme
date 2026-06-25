@@ -1,0 +1,52 @@
+<div class="color-{{ section.settings.color_scheme | default: 'scheme-1' }} gradient">
+  <div class="page-width cute-collections">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="cute-section-title"><span class="kawaii-glyph">♡</span>{{ section.settings.heading }}<span class="kawaii-glyph">♡</span></h2>
+    {%- endif -%}
+    <div class="cute-collections__grid">
+      {%- for block in section.blocks -%}
+        {%- assign coll = block.settings.collection -%}
+        {%- if coll != blank -%}
+          <a class="cute-card cute-collections__card" href="{{ coll.url }}" {{ block.shopify_attributes }}>
+            {%- if coll.featured_image -%}
+              {{ coll.featured_image | image_url: width: 700 | image_tag: loading: 'lazy', class: 'cute-collections__img' }}
+            {%- endif -%}
+            <span class="cute-collections__name">{{ block.settings.custom_title | default: coll.title }}</span>
+          </a>
+        {%- else -%}
+          {%- if request.design_mode -%}
+            <div class="cute-card cute-collections__card" {{ block.shopify_attributes }}>
+              <span class="cute-collections__name">Pick a collection in the editor</span>
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+<style>
+  .cute-collections { padding: 4rem 0; }
+  .cute-collections__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .cute-collections__card { display: block; overflow: hidden; text-align: center; text-decoration: none; }
+  .cute-collections__img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+  .cute-collections__name { display: block; padding: 1rem; font-weight: 600; }
+</style>
+{% schema %}
+{
+  "name": "Cute collections",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by cuteness" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "blocks": [
+    { "type": "collection_card", "name": "Collection", "settings": [
+      { "type": "collection", "id": "collection", "label": "Collection" },
+      { "type": "text", "id": "custom_title", "label": "Custom title (optional)" }
+    ]}
+  ],
+  "max_blocks": 6,
+  "presets": [{ "name": "Cute collections", "blocks": [
+    { "type": "collection_card" }, { "type": "collection_card" }, { "type": "collection_card" }
+  ]}]
+}
+{% endschema %}

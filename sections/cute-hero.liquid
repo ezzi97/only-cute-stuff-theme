@@ -1,0 +1,56 @@
+{%- liquid
+  assign scheme = section.settings.color_scheme | default: 'scheme-1'
+-%}
+<div class="color-{{ scheme }} gradient cute-hero">
+  <div class="page-width cute-hero__inner">
+    <div class="cute-hero__text">
+      <h1 class="cute-hero__heading">
+        <span class="kawaii-glyph">✿</span>{{ section.settings.heading }}<span class="kawaii-glyph">✿</span>
+      </h1>
+      <p class="cute-hero__sub">{{ section.settings.subheading }}</p>
+      <div class="cute-hero__buttons">
+        {%- if section.settings.button1_label != blank -%}
+          <a class="button cute-hero__cta" href="{{ section.settings.button1_link }}">{{ section.settings.button1_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.button2_label != blank -%}
+          <a class="button button--secondary cute-hero__cta" href="{{ section.settings.button2_link }}">{{ section.settings.button2_label }}</a>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.rating != blank -%}
+        <p class="cute-hero__rating">★ {{ section.settings.rating }} · {{ section.settings.review_count }}</p>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.image != blank -%}
+      <div class="cute-hero__media">
+        {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'eager', class: 'cute-hero__img' }}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+<style>
+  .cute-hero__inner { display: flex; gap: 3rem; align-items: center; padding: 5rem 0; flex-wrap: wrap; }
+  .cute-hero__text { flex: 1 1 320px; }
+  .cute-hero__media { flex: 1 1 320px; }
+  .cute-hero__img { width: 100%; border-radius: var(--kawaii-radius); box-shadow: var(--kawaii-shadow); }
+  .cute-hero__heading { font-size: 3rem; line-height: 1.1; }
+  .cute-hero__buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .cute-hero__rating { margin-top: 1rem; font-weight: 600; }
+</style>
+{% schema %}
+{
+  "name": "Cute hero",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Only the cutest things, ever" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Hand-picked plushies & accessories, wrapped with love." },
+    { "type": "image_picker", "id": "image", "label": "Hero image" },
+    { "type": "text", "id": "button1_label", "label": "Button 1 label", "default": "Shop the drop" },
+    { "type": "url", "id": "button1_link", "label": "Button 1 link" },
+    { "type": "text", "id": "button2_label", "label": "Button 2 label", "default": "Lookbook" },
+    { "type": "url", "id": "button2_link", "label": "Button 2 link" },
+    { "type": "text", "id": "rating", "label": "Rating", "default": "4.9" },
+    { "type": "text", "id": "review_count", "label": "Review count", "default": "12,400+ reviews" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" }
+  ],
+  "presets": [{ "name": "Cute hero" }]
+}
+{% endschema %}

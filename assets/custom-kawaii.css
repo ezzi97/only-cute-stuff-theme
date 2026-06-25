@@ -1,0 +1,41 @@
+/* Only Cute Stuff — kawaii motif layer (rounded corners, soft pastel shadows, glyph helpers) */
+:root {
+  --kawaii-radius: 22px;
+  --kawaii-shadow: 0 8px 24px rgba(255, 127, 176, 0.18);
+}
+
+.button,
+.card,
+.card-wrapper,
+.price,
+.product-card-wrapper,
+.collection-card,
+.cute-hero__cta,
+.cute-card {
+  border-radius: var(--kawaii-radius) !important;
+}
+
+.card,
+.cute-card {
+  box-shadow: var(--kawaii-shadow);
+}
+
+.button {
+  letter-spacing: 0.02em;
+}
+
+.kawaii-glyph {
+  display: inline-block;
+  margin: 0 0.35rem;
+  color: #ff7fb0;
+}
+
+.cute-section-title {
+  text-align: center;
+  font-weight: 600;
+}
+
+.cute-section-title .kawaii-glyph {
+  font-size: 0.8em;
+  vertical-align: middle;
+}
