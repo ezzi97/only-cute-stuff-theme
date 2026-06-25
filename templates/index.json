@@ -7,11 +7,16 @@
         "main_menu_handle": "main-menu",
         "color_primary": "#FFC0CB",
         "color_secondary": "#ADD8E6",
-        "font_main": "Helvetica"
+        "font_main": "Helvetica Neue, Helvetica, Arial, sans-serif"
       }
     },
-    "main": {
-      "type": "main-content"
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "featured_products": {
+      "type": "featured-products",
+      "settings": {}
     },
     "footer": {
       "type": "footer",
@@ -23,7 +28,8 @@
   },
   "order": [
     "header",
-    "main",
+    "hero",
+    "featured_products",
     "footer"
   ]
 }

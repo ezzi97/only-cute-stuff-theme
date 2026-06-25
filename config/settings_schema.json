@@ -18,7 +18,7 @@
         "type": "font_picker",
         "id": "font_main",
         "label": "Main font",
-        "default": "Helvetica"
+        "default": "Helvetica Neue, Helvetica, Arial, sans-serif"
       },
       {
         "type": "text",
