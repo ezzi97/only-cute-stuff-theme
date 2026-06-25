@@ -1,0 +1,118 @@
+{% comment %}
+  Sections: Product Information
+  Displays product title, price, description, variants, and add-to-cart form.
+{% endcomment %}
+<section class="product-info-section">
+  <div class="product-media">
+    {% if product.featured_image %}
+      {{ product.featured_image | image_url: width: 800 | image_tag: alt: product.featured_image.alt, class: 'product-image' }}
+    {% endif %}
+    {% comment %} Add support for additional images or media here {% endcomment %}
+  </div>
+  <div class="product-details">
+    <h1 class="product-title">{{ product.title }}</h1>
+    {% if block.settings.show_price %}
+      <p class="product-price">{{ product.price | money_with_currency }}</p>
+    {% endif %}
+    {% if product.description != blank %}
+      <div class="product-description rte">
+        {{ product.description }}
+      </div>
+    {% endif %}
+    {% form 'product', product, id: form_id %}
+      {% comment %} Variant selection, quantity, add-to-cart button {% endcomment %}
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <div class="product-form__quantity">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="updates[]" value="1" min="1">
+      </div>
+      <button type="submit" name="add" class="product-form__submit button">Add to Cart</button>
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Information",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show price",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Information"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.product-info-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 1rem;
+  font-family: var(--main-font);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-main-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.product-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.product-description .rte {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.product-form__quantity {
+  margin-bottom: 1rem;
+}
+.product-form__quantity label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+.product-form__quantity input {
+  width: 60px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.product-form__submit {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-form__submit:hover {
+  background-color: #e0a0b0; /* Darker shade of primary */
+}
+{% endstylesheet %}
