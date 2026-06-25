@@ -96,12 +96,13 @@ h1, h2, h3, h4,
 .price { color: var(--k-pink-deep); font-weight: 700; }
 .kawaii-glyph { display: inline-block; margin: 0 0.4rem; color: var(--k-pink); }
 
-/* ---- Announcement bar: bold pink ---- */
+/* ---- Announcement bar: bold pink, full-bleed ---- */
+.utility-bar,
 .announcement-bar {
   background: linear-gradient(90deg, var(--k-pink) 0%, var(--k-pink-deep) 100%) !important;
   color: #fff !important;
 }
-.announcement-bar__message, .announcement-bar a { color: #fff !important; }
+.announcement-bar__message, .announcement-bar a, .utility-bar a { color: #fff !important; }
 
 /* ---- Dark plum footer ---- */
 .footer { background-color: var(--k-plum) !important; }
