@@ -1,41 +1,117 @@
-/* Only Cute Stuff — kawaii motif layer (rounded corners, soft pastel shadows, glyph helpers) */
+/* ============================================================
+   Only Cute Stuff — kawaii design layer
+   Rich pastel styling: gradients, pill buttons, soft shadows,
+   hover-lift cards, decorative glyphs. Self-contained (no assets).
+   ============================================================ */
+
 :root {
-  --kawaii-radius: 22px;
-  --kawaii-shadow: 0 8px 24px rgba(255, 127, 176, 0.18);
+  --k-blush: #ffd6e8;
+  --k-cream: #fff8f3;
+  --k-lilac: #e7d6ff;
+  --k-mint: #d6f5e3;
+  --k-pink: #ff7fb0;
+  --k-pink-deep: #ff5fa0;
+  --k-ink: #4a3f47;
+  --kawaii-radius: 26px;
+  --kawaii-shadow: 0 10px 30px rgba(255, 127, 176, 0.22);
+  --kawaii-shadow-sm: 0 6px 16px rgba(255, 127, 176, 0.16);
 }
 
+/* Soft gradient page backdrop */
+body {
+  background: linear-gradient(180deg, var(--k-cream) 0%, #fff 40%, var(--k-cream) 100%);
+}
+
+/* ---- Buttons: pill-shaped, gradient, lift on hover ---- */
 .button,
+.shopify-payment-button__button--unbranded,
+.cute-hero__cta {
+  border-radius: 999px !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding-inline: 2rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.button:not(.button--secondary),
+.cute-hero__cta:not(.button--secondary) {
+  background: linear-gradient(135deg, var(--k-pink) 0%, var(--k-pink-deep) 100%) !important;
+  box-shadow: var(--kawaii-shadow-sm);
+  color: #fff !important;
+}
+.button:hover,
+.cute-hero__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--kawaii-shadow);
+}
+.button--secondary {
+  border: 2px solid var(--k-pink) !important;
+  border-radius: 999px !important;
+}
+
+/* ---- Cards: rounded, soft border, hover lift ---- */
 .card,
 .card-wrapper,
-.price,
 .product-card-wrapper,
 .collection-card,
-.cute-hero__cta,
 .cute-card {
   border-radius: var(--kawaii-radius) !important;
 }
-
 .card,
 .cute-card {
+  box-shadow: var(--kawaii-shadow-sm);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.card-wrapper:hover .card,
+.cute-card:hover {
+  transform: translateY(-5px);
   box-shadow: var(--kawaii-shadow);
 }
 
-.button {
-  letter-spacing: 0.02em;
+/* Rounded media + inputs for the soft look */
+.card__media .media,
+.cute-hero__img,
+.cute-collections__img,
+img.motion-reduce {
+  border-radius: var(--kawaii-radius);
+}
+.field__input,
+.select__select,
+.text-area,
+input[type='search'] {
+  border-radius: 999px !important;
+}
+.price {
+  color: var(--k-pink-deep);
+  font-weight: 700;
 }
 
+/* ---- Decorative glyph helper ---- */
 .kawaii-glyph {
   display: inline-block;
-  margin: 0 0.35rem;
-  color: #ff7fb0;
+  margin: 0 0.4rem;
+  color: var(--k-pink);
 }
 
+/* ---- Section titles: big, centered, with sparkle ---- */
 .cute-section-title {
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 0.5rem;
+}
+.cute-section-title .kawaii-glyph {
+  font-size: 0.7em;
+  vertical-align: middle;
+  animation: kawaii-bob 3s ease-in-out infinite;
+}
+@keyframes kawaii-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
-.cute-section-title .kawaii-glyph {
-  font-size: 0.8em;
-  vertical-align: middle;
+/* Give Dawn's featured-collection heading the cute treatment */
+.featured-collection .title-wrapper h2,
+.collection .title-wrapper h2 {
+  text-align: center;
+  font-weight: 700;
 }

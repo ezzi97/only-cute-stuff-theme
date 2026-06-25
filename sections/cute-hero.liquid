@@ -1,7 +1,9 @@
-{%- liquid
-  assign scheme = section.settings.color_scheme | default: 'scheme-1'
--%}
-<div class="color-{{ scheme }} gradient cute-hero">
+<div class="cute-hero">
+  <span class="cute-hero__deco cute-hero__deco--1" aria-hidden="true">✿</span>
+  <span class="cute-hero__deco cute-hero__deco--2" aria-hidden="true">♡</span>
+  <span class="cute-hero__deco cute-hero__deco--3" aria-hidden="true">✦</span>
+  <span class="cute-hero__deco cute-hero__deco--4" aria-hidden="true">ʚïɞ</span>
+  <span class="cute-hero__deco cute-hero__deco--5" aria-hidden="true">⭐</span>
   <div class="page-width cute-hero__inner">
     <div class="cute-hero__text">
       <h1 class="cute-hero__heading">
@@ -17,24 +19,60 @@
         {%- endif -%}
       </div>
       {%- if section.settings.rating != blank -%}
-        <p class="cute-hero__rating">★ {{ section.settings.rating }} · {{ section.settings.review_count }}</p>
+        <p class="cute-hero__rating">★★★★★ &nbsp;{{ section.settings.rating }} · {{ section.settings.review_count }}</p>
       {%- endif -%}
     </div>
-    {%- if section.settings.image != blank -%}
-      <div class="cute-hero__media">
+    <div class="cute-hero__media">
+      {%- if section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'eager', class: 'cute-hero__img' }}
-      </div>
-    {%- endif -%}
+      {%- else -%}
+        <div class="cute-hero__blob" aria-hidden="true"><span>🧸</span></div>
+      {%- endif -%}
+    </div>
   </div>
 </div>
 <style>
-  .cute-hero__inner { display: flex; gap: 3rem; align-items: center; padding: 5rem 0; flex-wrap: wrap; }
-  .cute-hero__text { flex: 1 1 320px; }
-  .cute-hero__media { flex: 1 1 320px; }
-  .cute-hero__img { width: 100%; border-radius: var(--kawaii-radius); box-shadow: var(--kawaii-shadow); }
-  .cute-hero__heading { font-size: 3rem; line-height: 1.1; }
-  .cute-hero__buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
-  .cute-hero__rating { margin-top: 1rem; font-weight: 600; }
+  .cute-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 120% at 0% 0%, #ffe1ef 0%, transparent 55%),
+      radial-gradient(120% 120% at 100% 0%, #e9dbff 0%, transparent 55%),
+      linear-gradient(160deg, #fff5fa 0%, #fff8f3 55%, #f3fff8 100%);
+    border-bottom-left-radius: 48px;
+    border-bottom-right-radius: 48px;
+  }
+  .cute-hero__inner {
+    display: flex; gap: 3rem; align-items: center;
+    padding: 5.5rem 0 6rem; flex-wrap: wrap; position: relative; z-index: 2;
+  }
+  .cute-hero__text { flex: 1 1 340px; }
+  .cute-hero__media { flex: 1 1 320px; display: flex; justify-content: center; }
+  .cute-hero__img { width: 100%; border-radius: 36px; box-shadow: var(--kawaii-shadow); }
+  .cute-hero__heading {
+    font-size: clamp(2.4rem, 5.5vw, 4rem); line-height: 1.05; margin: 0 0 1rem;
+    color: var(--k-ink);
+  }
+  .cute-hero__sub { font-size: 1.15rem; max-width: 30ch; color: var(--k-ink); opacity: .85; }
+  .cute-hero__buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.75rem; }
+  .cute-hero__rating { margin-top: 1.25rem; font-weight: 600; color: var(--k-pink-deep); }
+  /* fallback decorative circle when no image set */
+  .cute-hero__blob {
+    width: min(340px, 70vw); aspect-ratio: 1;
+    border-radius: 50% 50% 48% 52% / 52% 48% 52% 48%;
+    background: linear-gradient(145deg, #ffd6e8, #e7d6ff);
+    box-shadow: var(--kawaii-shadow);
+    display: grid; place-items: center; font-size: 7rem;
+    animation: kawaii-bob 4s ease-in-out infinite;
+  }
+  /* floating decorations */
+  .cute-hero__deco { position: absolute; z-index: 1; opacity: .55; color: #ff9ec7; pointer-events: none; animation: kawaii-bob 5s ease-in-out infinite; }
+  .cute-hero__deco--1 { top: 12%; left: 6%; font-size: 2.2rem; }
+  .cute-hero__deco--2 { top: 26%; right: 10%; font-size: 2.8rem; animation-delay: .6s; }
+  .cute-hero__deco--3 { bottom: 18%; left: 12%; font-size: 2rem; animation-delay: 1.2s; }
+  .cute-hero__deco--4 { top: 60%; right: 6%; font-size: 1.8rem; animation-delay: .9s; }
+  .cute-hero__deco--5 { bottom: 12%; right: 22%; font-size: 1.6rem; animation-delay: 1.5s; }
+  @media (prefers-reduced-motion: reduce) { .cute-hero__deco, .cute-hero__blob, .cute-section-title .kawaii-glyph { animation: none; } }
 </style>
 {% schema %}
 {
@@ -42,7 +80,7 @@
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "Only the cutest things, ever" },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Hand-picked plushies & accessories, wrapped with love." },
-    { "type": "image_picker", "id": "image", "label": "Hero image" },
+    { "type": "image_picker", "id": "image", "label": "Hero image (optional — a cute graphic shows if empty)" },
     { "type": "text", "id": "button1_label", "label": "Button 1 label", "default": "Shop the drop" },
     { "type": "url", "id": "button1_link", "label": "Button 1 link" },
     { "type": "text", "id": "button2_label", "label": "Button 2 label", "default": "Lookbook" },
