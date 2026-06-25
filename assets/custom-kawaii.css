@@ -120,3 +120,56 @@ h1, h2, h3, h4,
 .footer .footer-block__heading { font-family: var(--font-serif) !important; }
 .footer a:hover { color: var(--k-pink) !important; }
 .footer .field__input { color: var(--k-ink) !important; background: #fff !important; }
+
+/* ============================================================
+   Mobile responsiveness — comfortable padding + readable text
+   ============================================================ */
+@media screen and (max-width: 989px) {
+  .cute-hero__inner { gap: 2rem; padding: 3rem 0 3.5rem; }
+  .cute-hero__heading { font-size: clamp(2.6rem, 9vw, 3.6rem); }
+  .cute-section-head { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .cute-section-head .cute-section-title { font-size: clamp(2rem, 7vw, 2.8rem); }
+}
+
+@media screen and (max-width: 749px) {
+  /* roomier side padding so content never touches the edges */
+  .page-width { padding-left: 1.4rem !important; padding-right: 1.4rem !important; }
+  .cute-collections, .cute-hero__inner { padding-top: 2.5rem; padding-bottom: 2.75rem; }
+
+  /* hero */
+  .cute-hero__heading { font-size: 2.6rem; line-height: 1.08; }
+  .cute-hero__sub { font-size: 1.1rem; max-width: none; }
+  .cute-hero__buttons { width: 100%; }
+  .cute-hero__buttons .button,
+  .cute-hero__buttons .cute-hero__cta { flex: 1 1 46%; justify-content: center; text-align: center; }
+  .cute-hero__rating { font-size: 1rem; }
+  /* keep floating pills inside the frame (no negative offsets / overflow) */
+  .cute-hero__frame { overflow: visible; }
+  .cute-hero__pill { font-size: 1rem; padding: 0.7rem 1rem; }
+  .cute-hero__pill--tl { left: 0.6rem; top: 0.6rem; }
+  .cute-hero__pill--br { right: 0.6rem; bottom: 0.6rem; }
+
+  /* section badges + titles readable */
+  .cute-badge { font-size: 0.95rem; }
+  .cute-section-head .cute-section-title { font-size: 2rem; }
+  .cute-viewall { font-size: 1rem; }
+
+  /* collections: one per row, larger label */
+  .cute-collections__grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .cute-collections__name { font-size: 1.5rem; }
+  .cute-collections__count { font-size: 0.95rem; }
+
+  /* trust bar: 2 per row, left-aligned, comfortable */
+  .cute-trust__row { gap: 0.85rem 1rem; padding: 1.1rem 0; }
+  .cute-trust__item { flex: 1 1 44%; justify-content: flex-start; font-size: 1rem; }
+
+  /* product card text + price a touch larger */
+  .card__information, .card-information { padding: 0.9rem 1rem 1.1rem !important; font-size: 1rem; }
+  .price { font-size: 1.05rem; }
+
+  /* testimonials single column */
+  .cute-reviews__grid { grid-template-columns: 1fr !important; }
+}
+
+/* never allow horizontal scroll from decorative elements */
+html, body { overflow-x: hidden; }
