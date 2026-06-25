@@ -115,6 +115,26 @@ img.motion-reduce {
 input[type='search'] {
   border-radius: 999px !important;
 }
+/* Dawn draws the field border + focus state via .field and .field::after — round
+   them to the pill shape so focusing the input doesn't show a square box. */
+.field,
+.field::after,
+.field::before,
+.newsletter-form__field-wrapper,
+.select::after {
+  border-radius: 999px !important;
+}
+/* Search bar (header drawer, predictive search, and /search page) */
+.search__input,
+.search__input.field__input,
+.search .field,
+.search .field::after,
+.search-modal__form .field,
+.search-modal__form .field::after,
+predictive-search .field,
+predictive-search .field::after {
+  border-radius: 999px !important;
+}
 .price {
   color: var(--k-pink-deep);
   font-weight: 700;
