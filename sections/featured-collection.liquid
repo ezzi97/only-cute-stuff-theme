@@ -73,6 +73,9 @@
     data-id="{{ section.id }}"
   >
     <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}{% if show_desktop_slider %} collection__title--desktop-slider{% endif %}">
+      {%- if section.settings.badge != blank -%}
+        <span class="cute-badge">♥ {{ section.settings.badge }}</span>
+      {%- endif -%}
       {%- if section.settings.title != blank -%}
         <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {{ section.settings.title }}
@@ -242,6 +245,11 @@
       "type": "header",
       "content": "t:sections.featured-collection.settings.header_text.content"
     },   
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge (pill above heading)"
+    },
     {
       "type": "inline_richtext",
       "id": "title",
