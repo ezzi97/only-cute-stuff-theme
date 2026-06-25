@@ -75,6 +75,18 @@ body {
 .cute-card {
   border-radius: var(--kawaii-radius) !important;
 }
+/* Round every card layer to the SAME radius and clip the inner wrapper, so the
+   card background/shadow can't peek out behind the rounded image at the corners. */
+.card__inner,
+.card .card__media,
+.card__media .media,
+.card__inner .card__content {
+  border-radius: var(--kawaii-radius) !important;
+}
+.card__inner,
+.card__media {
+  overflow: hidden;
+}
 .card,
 .cute-card {
   box-shadow: var(--kawaii-shadow-sm);
@@ -87,7 +99,6 @@ body {
 }
 
 /* Rounded media + inputs for the soft look */
-.card__media .media,
 .cute-hero__img,
 .cute-collections__img,
 img.motion-reduce {
