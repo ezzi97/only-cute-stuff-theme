@@ -17,8 +17,7 @@
       {
         "type": "font_picker",
         "id": "font_main",
-        "label": "Main font",
-        "default": "Arial, sans-serif"
+        "label": "Main font"
       },
       {
         "type": "text",
