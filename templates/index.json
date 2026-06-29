@@ -18,13 +18,13 @@
         "heading_post": "things, ever.",
         "subheading": "Hand-picked plushies, accessories, and little daily delights — packed with love and a free sticker in every box.",
         "button1_label": "Shop the drop",
-        "button1_link": "shopify://collections/all",
+        "button1_link": "shopify:\/\/collections\/all",
         "button2_label": "Lookbook",
-        "button2_link": "shopify://collections/all",
+        "button2_link": "shopify:\/\/collections\/all",
         "rating": "4.9",
         "review_count": "12,400+ happy bestie reviews",
-        "badge1": "Free gift",
-        "badge1_sub": "over $50",
+        "badge1": "",
+        "badge1_sub": "",
         "badge2": "Loved by",
         "badge2_sub": "12k besties",
         "color_scheme": "scheme-1"
@@ -33,25 +33,69 @@
     "trust_bar": {
       "type": "cute-trust-bar",
       "blocks": {
-        "i1": { "type": "item", "settings": { "icon": "🚚", "text": "Free shipping $50+" } },
-        "i2": { "type": "item", "settings": { "icon": "↩️", "text": "30-day returns" } },
-        "i3": { "type": "item", "settings": { "icon": "🛡️", "text": "Secure checkout" } }
+        "i1": {
+          "type": "item",
+          "settings": {
+            "icon": "🚚",
+            "text": "Free shipping $50+"
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "icon": "↩️",
+            "text": "30-day returns"
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "icon": "🛡️",
+            "text": "Secure checkout"
+          }
+        }
       },
-      "block_order": ["i1", "i2", "i3"],
+      "block_order": [
+        "i1",
+        "i2",
+        "i3"
+      ],
       "settings": {}
     },
     "cute_collections": {
       "type": "cute-collection-cards",
       "blocks": {
-        "b1": { "type": "collection_card", "settings": { "collection": "plushie-club", "custom_title": "Plushie Club" } },
-        "b2": { "type": "collection_card", "settings": { "collection": "pearl-and-bow", "custom_title": "Pearl & Bow" } },
-        "b3": { "type": "collection_card", "settings": { "collection": "desk-cuties", "custom_title": "Desk Cuties" } }
+        "b1": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "plushie-club",
+            "custom_title": "Plushie Club"
+          }
+        },
+        "b2": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "pearl-and-bow",
+            "custom_title": "Pearl & Bow"
+          }
+        },
+        "b3": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "desk-cuties",
+            "custom_title": "Desk Cuties"
+          }
+        }
       },
-      "block_order": ["b1", "b2", "b3"],
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
       "settings": {
         "badge": "Collections",
         "heading": "Pick your flavor of cute",
-        "view_all_link": "shopify://collections",
+        "view_all_link": "shopify:\/\/collections",
         "color_scheme": "scheme-1"
       }
     },
@@ -83,16 +127,50 @@
     "testimonials": {
       "type": "cute-testimonials",
       "blocks": {
-        "t1": { "type": "testimonial", "settings": { "author": "Mochi", "quote": "Cutest plushie I've ever owned!", "rating": 5, "verified": true } },
-        "t2": { "type": "testimonial", "settings": { "author": "Bun", "quote": "Packaging is adorable!", "rating": 5, "verified": true } },
-        "t3": { "type": "testimonial", "settings": { "author": "Peach", "quote": "Obsessed, ordering again.", "rating": 5, "verified": true } }
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Mochi",
+            "quote": "Cutest plushie I've ever owned!",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Bun",
+            "quote": "Packaging is adorable!",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Peach",
+            "quote": "Obsessed, ordering again.",
+            "rating": 5,
+            "verified": true
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
       "settings": {
         "heading": "Loved by besties",
         "color_scheme": "scheme-3"
       }
     }
   },
-  "order": ["cute_hero", "trust_bar", "cute_collections", "trending", "testimonials"]
+  "order": [
+    "cute_hero",
+    "trust_bar",
+    "cute_collections",
+    "trending",
+    "testimonials"
+  ]
 }
