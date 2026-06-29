@@ -31,7 +31,7 @@
         {%- if section.settings.image != blank -%}
           {{ section.settings.image | image_url: width: 1100 | image_tag: loading: 'eager', class: 'cute-hero__img' }}
         {%- elsif section.settings.hero_product != blank -%}
-          <a class="cute-hero__product-link" href="{{ section.settings.hero_product.url }}" style="display:block;line-height:0;">
+          <a class="cute-hero__product-link" href="{{ section.settings.hero_product.url }}" style="display:block;line-height:0;max-width:360px;margin-inline:auto;">
             {{ section.settings.hero_product.featured_image | image_url: width: 1100 | image_tag: loading: 'eager', class: 'cute-hero__img' }}
           </a>
         {%- else -%}
