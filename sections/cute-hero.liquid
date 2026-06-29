@@ -31,7 +31,7 @@
         {%- if section.settings.image != blank -%}
           {{ section.settings.image | image_url: width: 1100 | image_tag: loading: 'eager', class: 'cute-hero__img' }}
         {%- elsif section.settings.hero_product != blank -%}
-          <a class="cute-hero__product-link" href="{{ section.settings.hero_product.url }}" style="display:block;line-height:0;max-width:360px;margin-inline:auto;">
+          <a class="cute-hero__product-link" href="{{ section.settings.hero_product.url }}">
             {{ section.settings.hero_product.featured_image | image_url: width: 1100 | image_tag: loading: 'eager', class: 'cute-hero__img' }}
           </a>
         {%- else -%}
@@ -68,6 +68,8 @@
   .cute-hero__media { flex: 1 1 380px; }
   .cute-hero__frame { position: relative; }
   .cute-hero__img { width: 100%; border-radius: 32px; box-shadow: var(--kawaii-shadow); display: block; }
+  .cute-hero__product-link { display: block; text-align: center; line-height: 0; }
+  .cute-hero__product-link .cute-hero__img { width: auto; max-width: 320px; max-height: 420px; margin-inline: auto; }
   .cute-hero__heading { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.02; margin: 0 0 1.25rem; color: var(--k-ink); }
   .cute-hero__accent { color: var(--k-pink-deep); font-style: italic; }
   .cute-hero__sub { font-size: 1.6rem; line-height: 1.5; max-width: 38ch; color: var(--k-ink); opacity: 0.82; }
