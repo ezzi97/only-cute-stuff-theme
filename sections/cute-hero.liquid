@@ -31,8 +31,15 @@
         {%- if section.settings.image != blank -%}
           {{ section.settings.image | image_url: width: 1100 | image_tag: loading: 'eager', class: 'cute-hero__img' }}
         {%- elsif section.settings.hero_product != blank -%}
-          <a class="cute-hero__product-link" href="{{ section.settings.hero_product.url }}">
-            {{ section.settings.hero_product.featured_image | image_url: width: 1100 | image_tag: loading: 'eager', class: 'cute-hero__img' }}
+          <a class="cute-hero__product-card" href="{{ section.settings.hero_product.url }}">
+            <div class="cute-hero__product-media">
+              {{ section.settings.hero_product.featured_image | image_url: width: 800 | image_tag: loading: 'eager', class: 'cute-hero__img' }}
+            </div>
+            <div class="cute-hero__product-info">
+              <span class="cute-hero__product-title">{{ section.settings.hero_product.title }}</span>
+              <span class="cute-hero__product-price">{% if section.settings.hero_product.price_varies %}From {% endif %}{{ section.settings.hero_product.price | money }}</span>
+              <span class="cute-hero__product-cta">Shop now →</span>
+            </div>
           </a>
         {%- else -%}
           <div class="cute-hero__blob" aria-hidden="true">
@@ -68,8 +75,14 @@
   .cute-hero__media { flex: 1 1 380px; }
   .cute-hero__frame { position: relative; }
   .cute-hero__img { width: 100%; border-radius: 32px; box-shadow: var(--kawaii-shadow); display: block; }
-  .cute-hero__product-link { display: block; text-align: center; line-height: 0; }
-  .cute-hero__product-link .cute-hero__img { width: auto; max-width: 320px; max-height: 420px; margin-inline: auto; }
+  .cute-hero__product-card { display: block; width: 100%; max-width: 300px; margin-inline: auto; background: #fff; border-radius: 28px; overflow: hidden; box-shadow: var(--kawaii-shadow); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+  .cute-hero__product-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(74,44,57,0.18); }
+  .cute-hero__product-media { line-height: 0; }
+  .cute-hero__product-card .cute-hero__img { width: 100%; height: 300px; object-fit: cover; border-radius: 0; box-shadow: none; display: block; }
+  .cute-hero__product-info { padding: 0.85rem 1.1rem 1.15rem; text-align: left; }
+  .cute-hero__product-title { display: block; font-weight: 700; color: #4a2c39; font-size: 1.02rem; line-height: 1.3; }
+  .cute-hero__product-price { display: block; color: #d6438a; font-weight: 800; margin-top: 0.25rem; font-size: 1.05rem; }
+  .cute-hero__product-cta { display: inline-block; margin-top: 0.7rem; font-size: 0.85rem; font-weight: 700; color: #fff; background: #ff7bb0; padding: 0.4rem 0.9rem; border-radius: 999px; }
   .cute-hero__heading { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.02; margin: 0 0 1.25rem; color: var(--k-ink); }
   .cute-hero__accent { color: var(--k-pink-deep); font-style: italic; }
   .cute-hero__sub { font-size: 1.6rem; line-height: 1.5; max-width: 38ch; color: var(--k-ink); opacity: 0.82; }
