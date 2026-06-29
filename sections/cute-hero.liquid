@@ -30,6 +30,10 @@
       <div class="cute-hero__frame">
         {%- if section.settings.image != blank -%}
           {{ section.settings.image | image_url: width: 1100 | image_tag: loading: 'eager', class: 'cute-hero__img' }}
+        {%- elsif section.settings.hero_product != blank -%}
+          <a class="cute-hero__product-link" href="{{ section.settings.hero_product.url }}" style="display:block;line-height:0;">
+            {{ section.settings.hero_product.featured_image | image_url: width: 1100 | image_tag: loading: 'eager', class: 'cute-hero__img' }}
+          </a>
         {%- else -%}
           <div class="cute-hero__blob" aria-hidden="true">
             <span class="cute-hero__blob-main">🧸</span>
@@ -110,6 +114,7 @@
     { "type": "text", "id": "heading_post", "label": "Heading end", "default": "things, ever." },
     { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Hand-picked plushies, accessories, and little daily delights — packed with love and a free sticker in every box." },
     { "type": "image_picker", "id": "image", "label": "Hero image (a cute graphic shows if empty)" },
+    { "type": "product", "id": "hero_product", "label": "Hero product (shown if no hero image is set)" },
     { "type": "text", "id": "button1_label", "label": "Button 1 label", "default": "Shop the drop" },
     { "type": "url", "id": "button1_link", "label": "Button 1 link" },
     { "type": "text", "id": "button2_label", "label": "Button 2 label", "default": "Lookbook" },
