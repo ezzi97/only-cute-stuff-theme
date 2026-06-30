@@ -18,9 +18,9 @@
         "heading_post": "things, ever.",
         "subheading": "Hand-picked plushies, accessories, and little daily delights — packed with love and a free sticker in every box.",
         "button1_label": "Shop the drop",
-        "button1_link": "shopify://collections/all",
+        "button1_link": "shopify:\/\/collections\/all",
         "button2_label": "Lookbook",
-        "button2_link": "shopify://collections/all",
+        "button2_link": "shopify:\/\/collections\/all",
         "rating": "4.9",
         "review_count": "12,400+ happy bestie reviews",
         "badge1": "",
@@ -38,7 +38,7 @@
           "type": "item",
           "settings": {
             "icon": "🚚",
-            "text": "Free shipping $50+"
+            "text": "Free shipping $30+"
           }
         },
         "i2": {
@@ -96,7 +96,7 @@
       "settings": {
         "badge": "Collections",
         "heading": "Pick your flavor of cute",
-        "view_all_link": "shopify://collections",
+        "view_all_link": "shopify:\/\/collections",
         "color_scheme": "scheme-1"
       }
     },
