@@ -18,9 +18,9 @@
         "heading_post": "things, ever.",
         "subheading": "Hand-picked plushies, accessories, and little daily delights — packed with love and a free sticker in every box.",
         "button1_label": "Shop the drop",
-        "button1_link": "shopify:\/\/collections\/all",
+        "button1_link": "shopify://collections/all",
         "button2_label": "Lookbook",
-        "button2_link": "shopify:\/\/collections\/all",
+        "button2_link": "shopify://collections/all",
         "rating": "4.9",
         "review_count": "12,400+ happy bestie reviews",
         "badge1": "",
@@ -76,7 +76,7 @@
         "b2": {
           "type": "collection_card",
           "settings": {
-            "collection": "pearl-and-bow",
+            "collection": "pearl-bow",
             "custom_title": "Pearl & Bow"
           }
         },
@@ -86,17 +86,57 @@
             "collection": "desk-cuties",
             "custom_title": "Desk Cuties"
           }
+        },
+        "cat_anime": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "anime-pop-culture",
+            "custom_title": "Anime & Pop Culture"
+          }
+        },
+        "cat_capy": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "capybara-lovers",
+            "custom_title": "Capybara Lovers"
+          }
+        },
+        "cat_keys": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "keychains-bag-charms",
+            "custom_title": "Keychains & Charms"
+          }
+        },
+        "cat_car": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "car-dashboard-decor",
+            "custom_title": "Car & Dashboard"
+          }
+        },
+        "cat_under10": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "under-10-cute-stuff",
+            "custom_title": "Under $10"
+          }
         }
       },
       "block_order": [
         "b1",
         "b2",
-        "b3"
+        "b3",
+        "cat_anime",
+        "cat_capy",
+        "cat_keys",
+        "cat_car",
+        "cat_under10"
       ],
       "settings": {
         "badge": "Collections",
         "heading": "Pick your flavor of cute",
-        "view_all_link": "shopify:\/\/collections",
+        "view_all_link": "shopify://collections",
         "color_scheme": "scheme-1"
       }
     },
