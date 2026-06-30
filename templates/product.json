@@ -84,12 +84,6 @@
             "icon": "heart",
             "content": "<p>Made from premium, super-soft plush. Spot clean with mild soap and air dry. Every item is quality-checked before it ships.</p>"
           }
-        },
-        "sticky_atc": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<div class=\"pdp-sticky pdp-sticky--hidden\" id=\"pdpSticky\">\n  <div class=\"pdp-sticky__info\">\n    <span class=\"pdp-sticky__title\">{{ product.title | truncate: 26 }}</span>\n    <span class=\"pdp-sticky__price\">{% if product.price_varies %}From {% endif %}{{ product.price | money }}</span>\n  </div>\n  <button type=\"button\" class=\"pdp-sticky__btn button\">Add to cart</button>\n</div>\n<style>\n.pdp-sticky{display:none;}\n@media (max-width:749px){\n  body{padding-bottom:6.5rem;}\n  .pdp-sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:6;align-items:center;gap:1rem;\n    padding:.9rem 1.4rem;background:#fff;box-shadow:0 -6px 22px rgba(74,44,57,.14);transition:transform .25s ease;}\n  .pdp-sticky--hidden{transform:translateY(125%);}\n  .pdp-sticky__info{display:flex;flex-direction:column;line-height:1.2;flex:1 1 auto;min-width:0;}\n  .pdp-sticky__title{font-size:1.25rem;color:var(--k-ink,#4a2c39);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}\n  .pdp-sticky__price{font-size:1.6rem;font-weight:800;color:#d6438a;}\n  .pdp-sticky__btn{flex:0 0 auto;border-radius:999px;white-space:nowrap;}\n}\n</style>\n<script>\n(function(){\n  var bar=document.getElementById('pdpSticky'); if(!bar) return;\n  var real=document.querySelector('product-form button[name=\"add\"], .product-form__submit');\n  if(!real) return;\n  bar.querySelector('.pdp-sticky__btn').addEventListener('click',function(){ real.click(); });\n  if('IntersectionObserver' in window){\n    var io=new IntersectionObserver(function(es){\n      es.forEach(function(e){\n        // show ONLY when the main button has scrolled above the viewport (passed it)\n        var show = !e.isIntersecting && e.boundingClientRect.top < 0;\n        bar.classList.toggle('pdp-sticky--hidden', !show);\n      });\n    },{threshold:0});\n    io.observe(real);\n  }\n})();\n</script>"
-          }
         }
       },
       "block_order": [
@@ -104,8 +98,7 @@
         "tab_shipping",
         "tab_returns",
         "tab_care",
-        "share",
-        "sticky_atc"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
