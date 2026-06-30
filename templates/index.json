@@ -87,11 +87,11 @@
             "custom_title": "Anime & Pop Culture"
           }
         },
-        "cat_capy": {
+        "cat_deskoffice": {
           "type": "collection_card",
           "settings": {
-            "collection": "capybara-lovers",
-            "custom_title": "Capybara Lovers"
+            "collection": "desk-decor-office",
+            "custom_title": "Desk Decor & Office"
           }
         }
       },
@@ -99,7 +99,7 @@
         "b1",
         "b3",
         "cat_anime",
-        "cat_capy"
+        "cat_deskoffice"
       ],
       "settings": {
         "badge": "Collections",
