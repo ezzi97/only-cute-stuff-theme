@@ -73,13 +73,6 @@
             "custom_title": "Plushie Club"
           }
         },
-        "b2": {
-          "type": "collection_card",
-          "settings": {
-            "collection": "pearl-bow",
-            "custom_title": "Pearl & Bow"
-          }
-        },
         "b3": {
           "type": "collection_card",
           "settings": {
@@ -100,38 +93,13 @@
             "collection": "capybara-lovers",
             "custom_title": "Capybara Lovers"
           }
-        },
-        "cat_keys": {
-          "type": "collection_card",
-          "settings": {
-            "collection": "keychains-bag-charms",
-            "custom_title": "Keychains & Charms"
-          }
-        },
-        "cat_car": {
-          "type": "collection_card",
-          "settings": {
-            "collection": "car-dashboard-decor",
-            "custom_title": "Car & Dashboard"
-          }
-        },
-        "cat_under10": {
-          "type": "collection_card",
-          "settings": {
-            "collection": "under-10-cute-stuff",
-            "custom_title": "Under $10"
-          }
         }
       },
       "block_order": [
         "b1",
-        "b2",
         "b3",
         "cat_anime",
-        "cat_capy",
-        "cat_keys",
-        "cat_car",
-        "cat_under10"
+        "cat_capy"
       ],
       "settings": {
         "badge": "Collections",

@@ -39,6 +39,7 @@
 <style>
   .cute-collections { padding: 4.5rem 0; }
   .cute-collections__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 280px)); justify-content: center; gap: 1.5rem; }
+  @media screen and (max-width: 749px) { .cute-collections__grid { grid-template-columns: repeat(2, 1fr); justify-content: stretch; gap: 1rem; } }
   .cute-collections__card {
     position: relative; display: block; border-radius: 28px; overflow: hidden;
     aspect-ratio: 3/4; text-decoration: none; box-shadow: var(--kawaii-shadow-sm);
