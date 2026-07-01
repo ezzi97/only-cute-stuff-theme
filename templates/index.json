@@ -21,12 +21,12 @@
         "button1_link": "shopify://collections/all",
         "button2_label": "Lookbook",
         "button2_link": "shopify://collections/all",
-        "rating": "4.9",
-        "review_count": "12,400+ happy bestie reviews",
+        "rating": "",
+        "review_count": "",
         "badge1": "",
         "badge1_sub": "",
-        "badge2": "Loved by",
-        "badge2_sub": "12k besties",
+        "badge2": "",
+        "badge2_sub": "",
         "color_scheme": "scheme-1",
         "hero_product": "capybara-hoodie-plush"
       }
@@ -132,54 +132,12 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
-    },
-    "testimonials": {
-      "type": "cute-testimonials",
-      "blocks": {
-        "t1": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Cutest plushie I've ever owned!",
-            "author": "Mochi",
-            "rating": 5,
-            "verified": true
-          }
-        },
-        "t2": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Packaging is adorable!",
-            "author": "Bun",
-            "rating": 5,
-            "verified": true
-          }
-        },
-        "t3": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Obsessed, ordering again.",
-            "author": "Peach",
-            "rating": 5,
-            "verified": true
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3"
-      ],
-      "settings": {
-        "heading": "Loved by besties",
-        "color_scheme": "scheme-3"
-      }
     }
   },
   "order": [
     "cute_hero",
     "trust_bar",
     "cute_collections",
-    "trending",
-    "testimonials"
+    "trending"
   ]
 }
